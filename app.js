@@ -1,8 +1,20 @@
 
 var http =require('http');
+var events=require('events');
+
+
+var eventEmitter=new events.eventEmitter();
+
 
 var server=http.createServer(function (req,res){
+    eventEmitter.emit('someone requested');
+
     res.end('server works!');
+});
+
+
+eventEmitter.on('someone requested', function(){
+    console.log('s request has been done on the server');
 });
 
 server.listen(3000,'localhost',function(){
