@@ -13,7 +13,9 @@ app.get('/',function(req,res){
 
 app.get('/tasks',function(req,res){
     fs.readFile('./db.json',function(err,data){
-        res.send(data.toString());
+        var tasks=JSON.parse(data.toString()).tasks;
+
+        res.send(tasks);
     });
     
 });
