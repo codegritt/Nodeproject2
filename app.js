@@ -1,6 +1,6 @@
 
 var http =require('http');
-var events=require('events');
+
 var express=require('express');
 var server =http.createServer(app);
 var fs=require('fs');
@@ -23,6 +23,8 @@ server.listen(3000,function(){
     console.log('server is listening to port 3000');
 });
 
+
+var events=require('events');
 
 var eventEmitter=new events.EventEmitter();
 
