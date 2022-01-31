@@ -19,8 +19,8 @@ app.get('/tasks',function(req,res){
     
 });
 
-server.listen(4000,function(){
-    console.log('server is listening to port 4000');
+server.listen(3000,function(){
+    console.log('server is listening to port 3000');
 });
 
 
@@ -38,8 +38,8 @@ eventEmitter.on('someone requested', function(data){
     console.log('a request has been done on the server',data);
 });
 
-server.listen(3000,'localhost',function(){
-    console.log('Server started on port:3000');
+server.listen(4000,'localhost',function(){
+    console.log('Server started on port:4000');
 
 });
 
