@@ -2,6 +2,9 @@
 var http =require('http');
 var events=require('events');
 var express=require('express');
+var server =http.createServer(app);
+var fs=require('fs');
+
 
 var app=express();
 
@@ -9,29 +12,19 @@ app.get('/',function(req,res){
     res.send('<h1>Express works</h1>');
 });
 
-app.listen(3000,function(){
+app.get('/tasks',function(req,res){
+    fs.readFile('./db.json',function(err,data){
+        res.send(data.toString());
+    });
+    
+});
+
+server.listen(3000,function(){
     console.log('server is listening to port 3000');
 });
 
 
-var eventEmitter=new events.EventEmitter();
 
-
-var server=http.createServer(function (req,res){
-    eventEmitter.emit('someone requested','test');
-
-    res.end('server works!');
-});
-
-
-eventEmitter.on('someone requested', function(data){
-    console.log('a request has been done on the server',data);
-});
-
-server.listen(3000,'localhost',function(){
-    console.log('Server started on port:3000');
-
-});
 
 
 var fs=require('fs');
