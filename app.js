@@ -3,7 +3,7 @@ var http =require('http');
 var events=require('events');
 
 
-var eventEmitter=new events.eventEmitter();
+var eventEmitter=new events.EventEmitter();
 
 
 var server=http.createServer(function (req,res){
@@ -14,7 +14,7 @@ var server=http.createServer(function (req,res){
 
 
 eventEmitter.on('someone requested', function(){
-    console.log('s request has been done on the server');
+    console.log('a request has been done on the server');
 });
 
 server.listen(3000,'localhost',function(){
