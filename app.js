@@ -1,12 +1,11 @@
 
-var http =require('http');
-
 var express=require('express');
-var server =http.createServer(app);
+var http =require('http');
 var fs=require('fs');
 
-
 var app=express();
+
+var server =http.createServer(app);
 
 app.get('/',function(req,res){
     res.send('<h1>Express works</h1>');
